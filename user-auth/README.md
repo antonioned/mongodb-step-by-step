@@ -29,9 +29,19 @@ db.grantRolesToUser("username", [{ role: "readWrite", db: "SOME_OTHER_DB" }, { r
 #   exit the mongo shell
 exit
 ```
+
+**2. Edit the /etc/mongod.conf**
+
+After user creation, add the following in the `mongod.conf` file:
+
+```
+security:
+   authorization: enabled
+```
+
 Wait a couple of minutes for the replica set to sync. Then, restart the mongod process `sudo systemctl restart mongod` and check its status, should be `active (running)`. After all this is done, you will have to authenticate with one of the users you created in order to be able to view databases, collections and run commands in the mongo shell. Running just `mongo` to login into the shell will succeed, but the commands will error out or show no results.
 
-**2 Use user authentication**
+**3. Use user authentication**
 In order to start the mongo shell authenticated, you need to run:
 
 ```
