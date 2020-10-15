@@ -43,8 +43,8 @@ UUID=THE_UUID_FROM_LSBLK /data/db xfs defaults,nofail  0  2
 sudo vim /etc/mongod.conf
 
 Change the dbPath to /data/db 
-Change the bindIp parameter to 0.0.0.0 (open on all IPs but keep in mind that the EC2 needs to be in a 
-private subnet and that we will add authentication security to it  as well)
+Change the bindIp parameter to 0.0.0.0 (open on all IPs but keep in mind that the EC2 needs to be
+in a private subnet and that we will add authentication security to it  as well)
 ```
 
 **3. (Optional) Add logrotation to the mongodb log file**
