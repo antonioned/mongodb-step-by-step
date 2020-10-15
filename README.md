@@ -6,6 +6,7 @@ Full, step-by-step MongoDB 4.4.1 installation guide. :leaves: :leaves:
 This guide shows how to set up MongoDB 4.4.1 from scratch. It is divided into 4 different guides, all adding to the initial installation guide and setup. 
 
 All of the steps are configurable, the installation part is the only mandatory one :smile:
+
 You can always choose to do a mongodb standalone with or w/o user authentication. A replica set with or w/o keyfile authentication, dump and restore or just create fresh and clean mongo server. :herb:
 
 ## Prerequisites
