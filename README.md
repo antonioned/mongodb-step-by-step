@@ -134,5 +134,7 @@ rs.add('mongo-secondary-2:27017')
 With this step, the replica set configuration is completed. The steps for adding security are optional but **strongly** recommended. The steps for doing a dump and restore in the primary are totally left for choice, if the scenario you have is migrating data then you can use them, if you just need a brand new mongodb server, then no dump and restore for you.
 
 For the steps about adding user authentication to your replica set, please continue with the [/user-auth/README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/user-auth/README.md) file.
+
 For the steps about adding replica set keyfile authentication, please continue with the [/rs-auth/README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/rs-auth/README.md) file.
+
 For the steps about dump and restore of existing mongo data, please continue with [/restore/README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/restore/README.md) file.
