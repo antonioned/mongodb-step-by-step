@@ -2,11 +2,11 @@
 
 ## Prerequisites
 
-In order to finish the following steps, you must first complete the full setup that is shown in the root [README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/README.md) file of this repo.
+In order to finish the following steps, you must first complete the installation steps shown in the root [README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/README.md) file of this repo.
 
 ## Step-by-step guide
 
-**1. Add users to your mongo replica set primary**
+**1. Add users to your mongo replica set primary** :man: :woman:
 
 The first step for adding security to your mongodb set is creating users. Best approach would be to create one super user which will have root privileges to the whole cluster and all dbs, and one user that will be used by your client application with access only to the specific databases the application needs.
 
@@ -30,7 +30,7 @@ db.grantRolesToUser("username", [{ role: "readWrite", db: "SOME_OTHER_DB" }, { r
 exit
 ```
 
-**2. Edit the /etc/mongod.conf**
+**2. Edit the /etc/mongod.conf** :hammer:
 
 After user creation, add the following in the `mongod.conf` file:
 
@@ -39,9 +39,9 @@ security:
    authorization: enabled
 ```
 
-Wait a couple of minutes for the replica set to sync. Then, restart the mongod process `sudo systemctl restart mongod` and check its status, should be `active (running)`. After all this is done, you will have to authenticate with one of the users you created in order to be able to view databases, collections and run commands in the mongo shell. Running just `mongo` to login into the shell will succeed, but the commands will error out or show no results.
+Wait a couple of minutes for the replica set to sync. Then, restart the mongod process `sudo systemctl restart mongod` and check its status, should be `active (running)`. After all this is done, you will have to authenticate with one of the users you created in order to be able to view databases, collections and run commands in the mongo shell. Running just `mongo` to login into the shell will succeed, but the commands will error out or show no results. :no_entry_sign:
 
-**3. Use user authentication**
+**3. Use user authentication** 
 In order to start the mongo shell authenticated, you need to run:
 
 ```
@@ -51,4 +51,4 @@ mongo -u root -p
 
 mongo -u username -p
 ```
-This will prompt for a password. It is recommended that you enter the password like this instead of putting it in the terminal command like: `mongo -u root -p root123` since if latter is used, the password will be visible in the terminal history of the EC2 instance (not good at all).
+This will prompt for a password. It is recommended that you enter the password like this instead of putting it in the terminal command like: `mongo -u root -p root123` since if latter is used, the password will be visible in the terminal history of the EC2 instance (not good at all). :x: :x: :x:

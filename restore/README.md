@@ -2,11 +2,11 @@
 
 ## Prerequisites
 
-In order to finish the following steps, you must first complete the full setup that is shown in the root [README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/README.md) file of this repo.
+In order to finish the following steps, you must first complete the installation steps shown in the root [README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/README.md) file of this repo.
 
 ## Step-by-step guide
 
-**1. Dump the source database**
+**1. Dump the source database** :recycle:
 
 In my case, I had to do a dump and restore from a standalone MongoDB server running on 3.4. I did it straight away, with no intermediate upgrades, the restore in the target instance finished completely successfully, no errors whatsoever. In order to confirm this, a client application check and test is **mandatory**, something that at the point of writing these instructions is still pending for me.
 

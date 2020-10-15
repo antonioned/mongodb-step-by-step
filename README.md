@@ -1,9 +1,12 @@
 # mongodb-step-by-step
-Full, step-by-step MongoDB 4.4.1 installation guide
+Full, step-by-step MongoDB 4.4.1 installation guide. :leaves: :leaves:
 
 ## Introduction
 
-This guide shows how to set up a MongoDB 4.4.1 replica set from scratch. It guides through the process of launching a completely fresh Ubuntu 18.04 in AWS, finishing with a full replica set with user and replica set authentication configured. Optionally, you can also dump and restore data from your old mongo in the process.
+This guide shows how to set up MongoDB 4.4.1 from scratch. It is divided into 4 different guides, all adding to the initial installation guide and setup. 
+
+All of the steps are configurable, the installation part is the only mandatory one :smile:
+You can always choose to do a mongodb standalone with or w/o user authentication. A replica set with or w/o keyfile authentication, dump and restore or just create fresh and clean mongo server. :herb:
 
 ## Prerequisites
 
@@ -83,55 +86,16 @@ bindIp: 0.0.0.0 10.8.4.25
 sudo systemctl restart mongod
 ```
 
-**6. Configure the replica set**
+With this, your mongodb server is installed and ready to be used. Whether you want to continue the set up with all the additional configurations available:
 
-After the previous steps have been configured on all of the 3 EC2 instances that will be members of the mongo replica set, next steps will be creating the replica set itself.
+- replica set
+- user authentication
+- keyfile authentication
+- dump and restore
 
-**6.1 Edit the /etc/hosts file**
+it is tottaly up to you.
 
-In order to ensure the 3 nodes can communicate between each other, we need to edit the `/etc/hosts` file and add the private IPs and hostnames to them:
-
-```
-sudo vim /etc/hosts
-
-Add the following to the file:
-
-10.8.4.25 mongo-primary
-10.8.4.110 mongo-secondary-1
-10.8.4.4 mongo-secondary-2
-```
-This has to be done in all 3 nodes, same content added in the hosts file. After edit, **reboot** all of the 3 nodes, `sudo reboot`.
-
-**6.2 Edit the /etc/mongod.conf**
-
-```
-sudo vim /etc/mongod.conf
-
-Add the replSetName parameter with the name of your replica set, replicaSet used in this example:
-
-replication:
-  replSetName: replicaSet
-
-sudo systemctl restart mongod       #   after edit, restart the mongod process
-```
-
-**6.3 Initialize the replica set**
-
-After all nodes are back up, ssh into the primary and run the mongo shell to initiate the replica set:
-
-```
-mongo
-rs.initiate()
-```
-
-**6.4 Add the secondary nodes (the remaining 2 EC2 instances)**
-
-```
-rs.add('mongo-secondary-1:27017')
-rs.add('mongo-secondary-2:27017')
-```
-
-With this step, the replica set configuration is completed. The steps for adding security are optional but **strongly** recommended. The steps for doing a dump and restore in the primary are totally left for choice, if the scenario you have is migrating data then you can use them, if you just need a brand new mongodb server, then no dump and restore for you.
+For the steps about configuring a replica set, please continue with the [/replica-set/README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/replica-set/README.md) file.
 
 For the steps about adding user authentication to your replica set, please continue with the [/user-auth/README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/user-auth/README.md) file.
 

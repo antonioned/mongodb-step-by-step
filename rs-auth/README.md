@@ -2,11 +2,11 @@
 
 ## Prerequisites
 
-In order to finish the following steps, you must first complete the full setup that is shown in the root [README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/README.md) file of this repo.
+In order to finish the following steps, you must first complete the installation steps shown in the root [README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/README.md) file of this repo.
 
 ## Step-by-step guide
 
-**1. Create a keyfile in the primary node**
+**1. Create a keyfile in the primary node** :key:
 
 The usage of a keyfile in the replica set is totally optional, it adds an additional level of security for the replica set nodes. Compared to the user auth, this is strictly for the set configuration only, the nodes use the keyfile to communicate and authenticate between themselves.
 
@@ -26,7 +26,7 @@ chmod 400 mongo.key
 chown mongodb:mongodb mongo.key
 ```
 
-**2. Shut down all nodes**
+**2. Shut down all nodes** :small_red_triangle_down: :small_red_triangle_down:
 
 Shut down all the nodes one by one, with the **primary being last**. This is mandatory, because it will prevent potential issues within the replica set.
 
@@ -35,7 +35,7 @@ use admin
 db.shutdownServer()
 ```
 
-**3. Edit the /etc/mongod.conf**
+**3. Edit the /etc/mongod.conf** :hammer:
 
 After the mongos are offline, shut down, add the following in the file:
 
