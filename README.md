@@ -51,7 +51,7 @@ Change the bindIp parameter to 0.0.0.0 (open on all IPs but keep in mind that th
 in a private subnet and that we will add authentication security to it  as well)
 ```
 
-**3. (Optional) Add logrotation to the mongodb log file** :arrows_clockwise
+**3. (Optional) Add logrotation to the mongodb log file** :arrows_clockwise:
 
 Check if logrotate is installed, if not install it.
 
