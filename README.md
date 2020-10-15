@@ -18,7 +18,7 @@ You can always choose to do a mongodb standalone with or w/o user authentication
 
 After you launch your EC2 instance (type, volume size, security settings all depend on your needs), first step would be to install mongo 4.4.1. For this, use the `install-mongo.sh` script provided in this repo. The scripts will install mongo and create a `/data/db` directory which I will actually use as the data store dir for the mongo. This dir will be mounted on a separate EBS volume which we will cover in this guide as well.
 
-**1. When installation is complete, next steps are configuring the EBS volume:**
+**1. When installation is complete, next steps are configuring the EBS volume:** :black_square_button:
 
 ```
 lsblk                                   #   outputs the volumes attached to the EC2, find the one that is not the root volume (in my case /dev/nvme1n1)
@@ -28,7 +28,7 @@ sudo mount /dev/nvme1n1 /data/db        #   mount the directory to the volume
 sudo chown -R mongodb:mongodb /data     #   add permissions for the mongodb user
 ```
 
-**1.1 Configure the volume to be mounted on reboot (Important)**
+**1.1 Configure the volume to be mounted on reboot (Important)** :hammer:
 
 This step is very important since you need the volume to mount on reboot of the instance. If not, the data will be there, but the mongo will not work properly.
 
@@ -41,7 +41,7 @@ Add the following:
 UUID=THE_UUID_FROM_LSBLK /data/db xfs defaults,nofail  0  2
 ```
 
-**2. Edit the /etc/mongod.conf**
+**2. Edit the /etc/mongod.conf** :hammer:
 
 ```
 sudo vim /etc/mongod.conf
@@ -51,7 +51,7 @@ Change the bindIp parameter to 0.0.0.0 (open on all IPs but keep in mind that th
 in a private subnet and that we will add authentication security to it  as well)
 ```
 
-**3. (Optional) Add logrotation to the mongodb log file**
+**3. (Optional) Add logrotation to the mongodb log file** :arrows_clockwise
 
 Check if logrotate is installed, if not install it.
 
@@ -75,7 +75,7 @@ Depending on your needs you can configure this file accordingly.
 
 **4. (Optional) At this point you can make an AMI of the instance, ready to be used for future needs either for launching a mongo standalone or replica set.**
 
-**5. Edit the /etc/mongod.conf**
+**5. Edit the /etc/mongod.conf** :hammer:
 
 ```
 sudo vim /etc/mongod.conf
