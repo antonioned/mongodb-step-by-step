@@ -42,9 +42,9 @@ UUID=THE_UUID_FROM_LSBLK /data/db xfs defaults,nofail  0  2
 ```
 sudo vim /etc/mongod.conf
 
-Change the dbPath to /data/db and also change the bindIp parameter to 0.0.0.0 (open on all IPs 
-but keep in mind that the EC2 needs to be in a private subnet and that we will add authentication security to it 
-as well)
+Change the dbPath to /data/db 
+Change the bindIp parameter to 0.0.0.0 (open on all IPs but keep in mind that the EC2 needs to be in a 
+private subnet and that we will add authentication security to it  as well)
 ```
 
 **3. (Optional) Add logrotation to the mongodb log file**
@@ -132,3 +132,7 @@ rs.add('mongo-secondary-2:27017')
 ```
 
 With this step, the replica set configuration is completed. The steps for adding security are optional but **strongly** recommended. The steps for doing a dump and restore in the primary are totally left for choice, if the scenario you have is migrating data then you can use them, if you just need a brand new mongodb server, then no dump and restore for you.
+
+For the steps about adding user authentication to your replica set, please continue with the /user-auth/README.md file.
+For the steps about adding replica set keyfile authentication, please continue with the /rs-auth/README.md file.
+For the steps about dump and restore of existing mongo data, please continue with /restore/README.md file.
