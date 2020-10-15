@@ -1,8 +1,8 @@
-# Add authentication to your MongoDB 4.4.1 replica set
+# Add user authentication to your MongoDB 4.4.1 replica set
 
 ## Prerequisites
 
-In order to finish the following steps, you must first complete the full setup that is shown in the root README.md file of this repo.
+In order to finish the following steps, you must first complete the full setup that is shown in the root [README.md](https://github.com/antonioned/mongodb-step-by-step/blob/main/README.md) file of this repo.
 
 ## Step-by-step guide
 
